@@ -2,36 +2,39 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TusLing's lưu bút</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TusLing's Lưu Bút</title>
   <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" type="image/png" href="assets/bow.png" />
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Indie+Flower&family=Caveat&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <!-- Nhạc nền -->
   <audio autoplay loop>
-    <source src="assets/intro.mp3" type="audio/mpeg" />
-    Trình duyệt không hỗ trợ âm thanh.
+    <source src="assets/intro.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
   </audio>
 
   <!-- Hiệu ứng hoa rơi -->
   <script src="assets/effect.js"></script>
 
-  <!-- Tiêu đề có nơ -->
+  <!-- Tiêu đề -->
   <div class="ribbon">🎀 TusLing's Lưu Bút 🎀</div>
 
-  <!-- Form viết lưu bút -->
-  <form action="thankyou.html" method="GET" class="form">
-    <label for="name">Tên của bạn:</label>
-    <input type="text" name="name" required />
+  <!-- Form -->
+  <form action="thankyou.html" method="GET" class="form" enctype="multipart/form-data">
+    
+    <label for="name">Tên cậu hoặc nickname của cậu:</label>
+    <input type="text" name="name" placeholder="Tùy chọn nha..." />
 
     <label for="memory">Kỷ niệm giữa chúng mình:</label>
-    <textarea name="memory" rows="4" placeholder="Viết kỷ niệm tại đây nhé..."></textarea>
+    <textarea name="memory" rows="3" placeholder="Hồi đó cậu còn nhớ không…?"></textarea>
 
-    <!-- Chọn font -->
+    <label for="images">Tải ảnh kỷ niệm (tối đa 5 ảnh):</label>
+    <input type="file" name="images" accept="image/*" multiple max="5"/>
+
     <label for="fontSelect">Chọn font chữ:</label>
     <select id="fontSelect">
       <option value="'Quicksand', sans-serif">Quicksand</option>
@@ -41,18 +44,16 @@
       <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
     </select>
 
-    <!-- Lời nhắn -->
     <label for="message">Lời nhắn:</label>
-    <textarea id="message" name="message" rows="6" placeholder="Viết lời nhắn tại đây nhé!"></textarea>
+    <textarea id="message" name="message" rows="6" placeholder="Tớ muốn nói với cậu rằng..."></textarea>
 
     <button type="submit">Gửi lưu bút 💌</button>
   </form>
 
-  <!-- Script đổi font -->
+  <!-- JavaScript đổi font -->
   <script>
     const fontSelect = document.getElementById("fontSelect");
     const messageBox = document.getElementById("message");
-
     fontSelect.addEventListener("change", function () {
       messageBox.style.fontFamily = this.value;
     });
