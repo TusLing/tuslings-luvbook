@@ -2,28 +2,110 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cảm ơn cậu nhiều nhaa!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cảm ơn cậu!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    body {
+      background-color: #ffeef4;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .heart-container {
+      background-color: #fff0f5;
+      width: 80vw;
+      max-width: 500px;
+      height: 500px;
+      clip-path: path("M250 460 Q60 300 100 180 Q120 100 250 150 Q380 100 400 180 Q440 300 250 460 Z");
+      margin: 0 auto;
+      padding: 40px 30px;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .message {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #d45a83;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .view-btn {
+      margin-top: 30px;
+      background-color: #fcb8d2;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+    }
+
+    .view-btn:hover {
+      background-color: #f57ca0;
+    }
+
+    /* Hoa rơi trái tim pastel */
+    .falling-heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('assets/heart-pastel.png') no-repeat center/contain;
+      animation: fall 6s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-  <div class="ribbon">🎀 TusLing’s cảm ơn cậu 🎀</div>
 
+  <!-- Hiệu ứng hoa rơi -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("falling-heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- Trái tim và lời cảm ơn -->
   <div class="heart-container">
-    <div class="heart">
-      <p class="thankyou-text">
-        🤍Cảm ơn mọi người vì đã là một mảnh ghép trong bức tranh thanh xuân rực rỡ của tui!<br><br>
-        Cảm ơn mọi người vì đã luôn yêu thương, quan tâm tới cô bé TusLing ngốc nghếch này.<br><br>
-        Mình sẽ luôn cố gắng để có thể xứng đáng với tất cả sự yêu thương này của mọi người ạ 🤍
-      </p>
-    </div>
+    <p class="message">
+      🤍 Cảm ơn mọi người vì đã là một mảnh ghép trong bức tranh thanh xuân rực rỡ của tui! <br><br>
+      Cảm ơn mọi người vì đã luôn yêu thương, quan tâm tới cô bé TusLing ngốc nghếch này. <br><br>
+      Mình sẽ luôn cố gắng để xứng đáng với tất cả sự yêu thương này ạ 🤍
+    </p>
   </div>
 
-  <button onclick="window.location.href='admin.html'" class="admin-btn">Xem các lời nhắn</button>
+  <!-- Nút xem tổng hợp -->
+  <button class="view-btn" onclick="checkPassword()">📖 Xem lời nhắn</button>
 
-  <script src="assets/effect.js"></script>
-  <audio autoplay loop>
-    <source src="assets/intro.mp3" type="audio/mpeg" />
-  </audio>
+  <script>
+    function checkPassword() {
+      const pass = prompt("Nhập mật khẩu để xem lời nhắn:");
+      if (pass === "24272025") {
+        window.location.href = "messages.html";
+      } else {
+        alert("Sai mật khẩu rồi nè 😢");
+      }
+    }
+  </script>
+
 </body>
 </html>
