@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Lời cảm ơn</title>
+  <title>Cảm ơn cậu</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
     body {
@@ -11,39 +11,60 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
+      position: relative;
       overflow: hidden;
-      position: relative;
     }
 
-    .heart-letter {
-      width: 350px;
-      height: 350px;
-      background: url('https://i.imgur.com/9nM2vYE.png') no-repeat center center;
-      background-size: contain;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
+    .heart {
+      width: 300px;
+      height: 270px;
+      position: relative;
+      background: pink;
+      transform: rotate(-45deg);
+      margin-bottom: 30px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 300px;
+      height: 270px;
+      background: pink;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -150px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 150px;
+      top: 0;
+    }
+
+    .heart p {
+      position: absolute;
+      transform: rotate(45deg);
+      width: 100%;
+      height: 100%;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #b20045;
       text-align: center;
-      color: #a40036;
-      font-size: 20px;
       line-height: 1.6;
-      position: relative;
-    }
-
-    .heart-letter p {
-      margin: 0;
+      font-family: 'Dancing Script', cursive;
     }
 
     .view-button {
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
       background: #f7c6d9;
       border: none;
-      padding: 10px 15px;
-      border-radius: 10px;
+      padding: 10px 20px;
+      border-radius: 12px;
       font-size: 14px;
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -55,19 +76,23 @@
   </style>
 </head>
 <body>
-  <div class="heart-letter">
+  <div class="heart">
     <p>
-      Cậu người vô số là một ai... <br>
-      mình muốn bạn nhớ điều này! 💌 <br>
-      sẽ luôn có người yêu thương cậu, <br>
-      lo lắng cho cậu... như tớ lúc này. <br>
-      Tớ sẽ luôn cố gắng để viết tất cả <br>
+      Cậu người vô số là một ai...<br>
+      mình muốn bạn nhớ điều này! 💌<br>
+      sẽ luôn có người yêu thương cậu,<br>
+      lo lắng cho cậu... như tớ lúc này.<br>
+      Tớ sẽ luôn cố gắng để viết tất cả<br>
       sự yêu thương này 🩷
     </p>
   </div>
 
-  <button class="view-button" onclick="window.location.href='messages.html'">📖 Xem tin nhắn</button>
+  <button class="view-button" onclick="window.location.href='messages.html'">
+    📖 Xem tin nhắn
+  </button>
 
   <script src="assets/effect.js"></script>
 </body>
 </html>
+
+ 
