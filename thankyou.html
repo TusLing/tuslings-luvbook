@@ -16,19 +16,70 @@
       overflow: hidden;
     }
 
-    .heart-container {
-      background-color: #fff0f5;
-      width: 80vw;
-      max-width: 500px;
-      height: 500px;
-      clip-path: path("M250 460 Q60 300 100 180 Q120 100 250 150 Q380 100 400 180 Q440 300 250 460 Z");
-      margin: 0 auto;
-      padding: 40px 30px;
-      box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    <!-- Trái tim pastel rơi -->
+<div id="heart-container"></div>
+
+<style>
+  .heart {
+    position: fixed;
+    top: -50px;
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    transform: rotate(45deg);
+    animation: fall 6s linear infinite;
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: inherit;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.9;
     }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const pastelColors = ['#fbcfe8', '#fde68a', '#bbf7d0', '#e0e7ff', '#fcd34d'];
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.backgroundColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    document.getElementById('heart-container').appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+
 
     .message {
       font-family: 'Pacifico', cursive;
