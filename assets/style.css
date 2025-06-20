@@ -1,0 +1,107 @@
+body {
+  background-color: #ffeef5;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.ribbon {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #d63384;
+  margin-bottom: 30px;
+}
+
+.form {
+  background-color: #fffafc;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #f3c6d2;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+textarea.grid-paper {
+  background-color: #f9f5eb;
+  background-image: linear-gradient(#e2d9ca 1px, transparent 1px),
+    linear-gradient(to right, #e2d9ca 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+button {
+  background-color: #f48fb1;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.heart-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.heart {
+  width: 320px;
+  height: 280px;
+  background: pink;
+  position: relative;
+  transform: rotate(-45deg);
+  margin: auto;
+  background: #ffccd5;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 320px;
+  height: 280px;
+  background: #ffccd5;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -160px;
+  left: 0;
+}
+
+.heart::after {
+  left: 160px;
+  top: 0;
+}
+
+.thankyou-text {
+  transform: rotate(45deg);
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 14px;
+  padding: 30px;
+  color: #6d214f;
+}
+
+.admin-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffc0cb;
+}
+
+.password-box {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff0f5;
+  border-radius: 10px;
+}
