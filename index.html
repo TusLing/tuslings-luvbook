@@ -5,62 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TusLing's lưu bút</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" type="image/png" href="assets/bow.png" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Indie+Flower&family=Caveat&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 <body>
-  <audio autoplay loop>
-  <source src="assets/intro.mp3" type="audio/mpeg">
-  Trình duyệt của bạn không hỗ trợ âm thanh.
-</audio>
-<p>🎵 Nhấp vào màn hình nếu không nghe nhạc nha!</p>
-  <div class="ribbon">🎀 TusLing's lưu bút 🎀</div>
-
-  <form action="thankyou.html" method="GET" class="form">
-    <label>Tên cậu hoặc nickname của cậu:</label>
-    <input type="text" name="name" placeholder="Tùy ý nha~" />
-
-    <label>Kỷ niệm giữa chúng mình:</label>
-    <textarea name="memory" placeholder="Viết kỷ niệm nha~"></textarea>
-
-    <label>Chọn font chữ dễ thương:</label>
-    <select name="font">
-      <option value="cute">Tròn tròn dễ thương</option>
-      <option value="handwritten">Chữ viết tay bay bổng</option>
-      <option value="classic">Nhẹ nhàng cổ điển</option>
-    </select>
-
-    <label>Ảnh của chúng mình (upload 1 ảnh thôi nha):</label>
-    <input type="file" name="image" accept="image/*" />
-
-    <label>Lời nhắn muốn gửi tới tớ:</label>
-    <textarea name="message" class="grid-paper" placeholder="Viết lời nhắn vào đây nè~"></textarea>
-
-    <button type="submit">Gửi lưu bút</button><!-- Chọn font -->
-<label for="fontSelect">Chọn font chữ:</label>
-<select id="fontSelect">
-  <option value="'Quicksand', sans-serif">Quicksand</option>
-  <option value="'Pacifico', cursive">Pacifico</option>
-</select>
-
-<br><br>
-
-<!-- Textarea để viết lời nhắn -->
-<label for="message">Lời nhắn:</label>
-<textarea id="message" name="message" rows="6" cols="50" placeholder="Viết lời nhắn tại đây nhé!"></textarea>
-
-  </form>
-
-  <script src="assets/effect.js"></script>
+  <!-- Nhạc nền -->
   <audio autoplay loop>
     <source src="assets/intro.mp3" type="audio/mpeg" />
-  </audio><script>
-  const fontSelect = document.getElementById("fontSelect");
-  const messageBox = document.getElementById("message");
+    Trình duyệt không hỗ trợ âm thanh.
+  </audio>
 
-  fontSelect.addEventListener("change", function () {
-    messageBox.style.fontFamily = this.value;
-  });
-</script>
+  <!-- Hiệu ứng hoa rơi -->
+  <script src="assets/effect.js"></script>
 
+  <!-- Tiêu đề có nơ -->
+  <div class="ribbon">🎀 TusLing's Lưu Bút 🎀</div>
+
+  <!-- Form viết lưu bút -->
+  <form action="thankyou.html" method="GET" class="form">
+    <label for="name">Tên của bạn:</label>
+    <input type="text" name="name" required />
+
+    <label for="memory">Kỷ niệm giữa chúng mình:</label>
+    <textarea name="memory" rows="4" placeholder="Viết kỷ niệm tại đây nhé..."></textarea>
+
+    <!-- Chọn font -->
+    <label for="fontSelect">Chọn font chữ:</label>
+    <select id="fontSelect">
+      <option value="'Quicksand', sans-serif">Quicksand</option>
+      <option value="'Pacifico', cursive">Pacifico</option>
+      <option value="'Indie Flower', cursive">Indie Flower</option>
+      <option value="'Caveat', cursive">Caveat</option>
+      <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
+    </select>
+
+    <!-- Lời nhắn -->
+    <label for="message">Lời nhắn:</label>
+    <textarea id="message" name="message" rows="6" placeholder="Viết lời nhắn tại đây nhé!"></textarea>
+
+    <button type="submit">Gửi lưu bút 💌</button>
+  </form>
+
+  <!-- Script đổi font -->
+  <script>
+    const fontSelect = document.getElementById("fontSelect");
+    const messageBox = document.getElementById("message");
+
+    fontSelect.addEventListener("change", function () {
+      messageBox.style.fontFamily = this.value;
+    });
+  </script>
 </body>
 </html>
-
