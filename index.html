@@ -34,13 +34,33 @@
     <label>Lời nhắn muốn gửi tới tớ:</label>
     <textarea name="message" class="grid-paper" placeholder="Viết lời nhắn vào đây nè~"></textarea>
 
-    <button type="submit">Gửi lưu bút</button>
+    <button type="submit">Gửi lưu bút</button><!-- Chọn font -->
+<label for="fontSelect">Chọn font chữ:</label>
+<select id="fontSelect">
+  <option value="'Quicksand', sans-serif">Quicksand</option>
+  <option value="'Pacifico', cursive">Pacifico</option>
+</select>
+
+<br><br>
+
+<!-- Textarea để viết lời nhắn -->
+<label for="message">Lời nhắn:</label>
+<textarea id="message" name="message" rows="6" cols="50" placeholder="Viết lời nhắn tại đây nhé!"></textarea>
+
   </form>
 
   <script src="assets/effect.js"></script>
   <audio autoplay loop>
     <source src="assets/intro.mp3" type="audio/mpeg" />
-  </audio>
+  </audio><script>
+  const fontSelect = document.getElementById("fontSelect");
+  const messageBox = document.getElementById("message");
+
+  fontSelect.addEventListener("change", function () {
+    messageBox.style.fontFamily = this.value;
+  });
+</script>
+
 </body>
 </html>
 
