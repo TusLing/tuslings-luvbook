@@ -1,0 +1,43 @@
+<details>
+<summary>👉 Nhấn vào đây để hiện nội dung file <code>index.html</code></summary>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TusLing's lưu bút</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="ribbon">🎀 TusLing's lưu bút 🎀</div>
+
+  <form action="thankyou.html" method="GET" class="form">
+    <label>Tên cậu hoặc nickname của cậu:</label>
+    <input type="text" name="name" placeholder="Tùy ý nha~" />
+
+    <label>Kỷ niệm giữa chúng mình:</label>
+    <textarea name="memory" placeholder="Viết kỷ niệm nha~"></textarea>
+
+    <label>Chọn font chữ dễ thương:</label>
+    <select name="font">
+      <option value="cute">Tròn tròn dễ thương</option>
+      <option value="handwritten">Chữ viết tay bay bổng</option>
+      <option value="classic">Nhẹ nhàng cổ điển</option>
+    </select>
+
+    <label>Ảnh của chúng mình (upload 1 ảnh thôi nha):</label>
+    <input type="file" name="image" accept="image/*" />
+
+    <label>Lời nhắn muốn gửi tới tớ:</label>
+    <textarea name="message" class="grid-paper" placeholder="Viết lời nhắn vào đây nè~"></textarea>
+
+    <button type="submit">Gửi lưu bút</button>
+  </form>
+
+  <script src="assets/effect.js"></script>
+  <audio autoplay loop>
+    <source src="assets/intro.mp3" type="audio/mpeg" />
+  </audio>
+</body>
+</html>
+</details>
