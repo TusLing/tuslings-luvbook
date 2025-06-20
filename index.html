@@ -2,40 +2,85 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TusLing's Lưu Bút</title>
-  <link rel="stylesheet" href="assets/style.css" />
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Indie+Flower&family=Caveat&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffeef4;
+      font-family: 'Quicksand', sans-serif;
+      padding: 30px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .form {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.4);
+    }
+    label, textarea, input, select {
+      display: block;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    textarea {
+      background-color: #fdf6ee;
+      background-image: linear-gradient(#e7dccc 1px, transparent 1px);
+      background-size: 100% 25px;
+      line-height: 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: fall 6s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: inherit;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
+  <h1 style="text-align:center; font-family:'Pacifico', cursive; font-size: 2.5rem; color: #e75480;">🎀 TusLing's Lưu Bút 🎀</h1>
+  <form class="form" action="thankyou.html">
+    <label>Tên cậu hoặc nickname của cậu:</label>
+    <input type="text" name="name" />
 
-  <!-- Nhạc nền -->
-  <audio autoplay loop>
-    <source src="assets/intro.mp3" type="audio/mpeg">
-    Trình duyệt của bạn không hỗ trợ phát nhạc.
-  </audio>
+    <label>Kỷ niệm giữa chúng mình:</label>
+    <textarea name="memory" rows="3"></textarea>
 
-  <!-- Hiệu ứng hoa rơi -->
-  <script src="assets/effect.js"></script>
+    <label>Tải ảnh kỷ niệm (tối đa 5 ảnh):</label>
+    <input type="file" name="images" accept="image/*" multiple />
 
-  <!-- Tiêu đề -->
-  <div class="ribbon">🎀 TusLing's Lưu Bút 🎀</div>
-
-  <!-- Form -->
-  <form action="thankyou.html" method="GET" class="form" enctype="multipart/form-data">
-    
-    <label for="name">Tên cậu hoặc nickname của cậu:</label>
-    <input type="text" name="name" placeholder="Tùy chọn nha..." />
-
-    <label for="memory">Kỷ niệm giữa chúng mình:</label>
-    <textarea name="memory" rows="3" placeholder="Hồi đó cậu còn nhớ không…?"></textarea>
-
-    <label for="images">Tải ảnh kỷ niệm (tối đa 5 ảnh):</label>
-    <input type="file" name="images" accept="image/*" multiple max="5"/>
-
-    <label for="fontSelect">Chọn font chữ:</label>
+    <label>Chọn font chữ:</label>
     <select id="fontSelect">
       <option value="'Quicksand', sans-serif">Quicksand</option>
       <option value="'Pacifico', cursive">Pacifico</option>
@@ -44,19 +89,27 @@
       <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
     </select>
 
-    <label for="message">Lời nhắn:</label>
-    <textarea id="message" name="message" rows="6" placeholder="Tớ muốn nói với cậu rằng..."></textarea>
-
-    <button type="submit">Gửi lưu bút 💌</button>
+    <label>Lời nhắn:</label>
+    <textarea id="message" name="message" rows="6"></textarea>
+    <button type="submit">Gửi 💌</button>
   </form>
 
-  <!-- JavaScript đổi font -->
   <script>
     const fontSelect = document.getElementById("fontSelect");
     const messageBox = document.getElementById("message");
     fontSelect.addEventListener("change", function () {
       messageBox.style.fontFamily = this.value;
     });
+    // Hoa rơi
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+    setInterval(createHeart, 300);
   </script>
 </body>
 </html>
