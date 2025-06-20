@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TusLing’s lưu bút 💌</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="ribbon">📖 Các lời nhắn gửi tới TusLing</div>
+
+  <div class="password-box">
+    <label for="password">Nhập mật khẩu để xem lưu bút: </label>
+    <input type="password" id="password" />
+    <button onclick="checkPassword()">Xác nhận</button>
+  </div>
+
+  <div id="messages" style="display: none;">
+    <p>💌 Đây là nơi các lời nhắn sẽ hiện lên nha (phiên bản demo).</p>
+    <!-- Chỗ này sẽ cập nhật sau nếu bạn muốn lưu dữ liệu thật -->
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === "24272025") {
+        document.querySelector(".password-box").style.display = "none";
+        document.getElementById("messages").style.display = "block";
+      } else {
+        alert("Sai mật khẩu òi :<");
+      }
+    }
+  </script>
+
+  <audio autoplay loop>
+    <source src="assets/intro.mp3" type="audio/mpeg" />
+  </audio>
+</body>
+</html>
