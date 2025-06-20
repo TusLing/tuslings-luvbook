@@ -2,108 +2,67 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Cảm ơn cậu</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <title>Thư cảm ơn hình trái tim</title>
   <style>
     body {
-      background-color: #fffaf6;
-      font-family: 'Dancing Script', cursive;
+      background: #fff0f6;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 40px 20px;
-      box-sizing: border-box;
-      overflow-y: auto;
+      height: 100vh;
+      margin: 0;
     }
-
-  .heart p {
-  position: absolute;
-  transform: rotate(45deg);
-  width: 90%;      /* was 100% */
-  height: 90%;     /* was 100% */
-  left: 5%;        /* add this */
-  top: 5%;         /* add this */
-  padding: 10px 10px; /* reduce padding */
-  box-sizing: border-box;
-  font-size: 15px; /* reduce if needed */
-  color: #7d0034;
-  text-align: center;
-  line-height: 1.6;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-    
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      width: 340px;
-      height: 340px;
-      background: #f9aec9;
-      border-radius: 50%;
+    .heart-container {
+      width: 420px;
+      height: 380px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .heart {
+      background: #ffb6d5;
+      width: 400px;
+      height: 350px;
       position: absolute;
-    }
-
-    .heart::before {
-      top: -170px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 170px;
       top: 0;
+      left: 0;
+      clip-path: path('M 200 350 Q 0 200 100 100 Q 200 0 300 100 Q 400 200 200 350 Z');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px 0 rgba(255, 182, 213, 0.4);
+      z-index: 0;
     }
-
-    .heart p {
+    .heart-text {
       position: absolute;
-      transform: rotate(45deg);
-      width: 100%;
-      height: 100%;
-      padding: 35px 25px;
-      box-sizing: border-box;
-      font-size: 16px;
-      color: #7d0034;
+      top: 70px;
+      left: 40px;
+      width: 320px;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      line-height: 1.6;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
+      font-family: 'Dancing Script', 'Pacifico', 'Comic Sans MS', cursive, sans-serif;
+      font-size: 1.25rem;
+      color: #e75480;
+      font-weight: bold;
+      line-height: 1.7;
+      z-index: 1;
+      white-space: pre-line;
+      text-shadow: 1px 1px 8px #fff6fa, 0 1px 1px #fff;
     }
-
-    .view-button {
-      background: #f7c6d9;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .view-button:hover {
-      background-color: #ffc0cb;
+    @media (max-width: 500px) {
+      .heart-container { width: 98vw; height: 80vw; }
+      .heart, .heart-text { width: 95vw; }
+      .heart-text { font-size: 1rem; left: 5vw; width: 85vw; }
     }
   </style>
+  <!-- Google Fonts cho chữ cách điệu: Dancing Script -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="heart">
-    <p>
-      Cảm ơn các cậu vì đã trở thành<br>
-      mảnh ghép tươi đẹp nhất trong<br>
-      những tháng ngày thanh xuân của tớ 🤍<br><br>
-      Cảm ơn vì đã luôn yêu thương,<br>
-      quan tâm tới cô bé TusLing ngốc nghếch này 🤍<br><br>
-      Tớ cũng sẽ cố gắng hơn để<br>
-      có thể xứng với những sự yêu quý vô giá này 🤍<br><br>
-      Love you all 💌
-    </p>
-  </div>
-
-  <button class="view-button" onclick="window.location.href='messages.html'">
-    📖 Xem tin nhắn
-  </button>
-
-  <script src="assets/effect.js"></script>
-</body>
-</html>
+  <div class="heart-container">
+    <div class="
+
