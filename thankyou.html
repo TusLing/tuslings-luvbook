@@ -18,14 +18,23 @@
       overflow-y: auto;
     }
 
-    .heart {
-      width: 340px;
-      height: 340px;
-      position: relative;
-      background: #f9aec9;
-      transform: rotate(-45deg);
-      margin-bottom: 30px;
-    }
+  .heart p {
+  position: absolute;
+  transform: rotate(45deg);
+  width: 90%;      /* was 100% */
+  height: 90%;     /* was 100% */
+  left: 5%;        /* add this */
+  top: 5%;         /* add this */
+  padding: 10px 10px; /* reduce padding */
+  box-sizing: border-box;
+  font-size: 15px; /* reduce if needed */
+  color: #7d0034;
+  text-align: center;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+    
 
     .heart::before,
     .heart::after {
