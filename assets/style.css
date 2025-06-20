@@ -31,12 +31,18 @@ input, textarea, select {
   font-size: 15px;
 }
 
-textarea.grid-paper {
-  background-color: #f9f5eb;
-  background-image: linear-gradient(#e2d9ca 1px, transparent 1px),
-    linear-gradient(to right, #e2d9ca 1px, transparent 1px);
-  background-size: 20px 20px;
+textarea {
+  background-image: linear-gradient(#e7dccc 1px, transparent 1px);
+  background-size: 100% 25px;
+  background-color: #fdf6ee;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 25px;
+  width: 100%;
+  border-radius: 8px;
 }
+
 
 button {
   background-color: #f48fb1;
