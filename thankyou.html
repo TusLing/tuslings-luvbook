@@ -1,96 +1,33 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cảm ơn cậu!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lời cảm ơn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #ffeef4;
-      font-family: 'Quicksand', sans-serif;
+      background: #ffeef4;
+      font-family: 'Pacifico', cursive;
       text-align: center;
       padding: 40px;
-      position: relative;
       overflow: hidden;
     }
-
-    <!-- Trái tim pastel rơi -->
-<div id="heart-container"></div>
-
-<style>
-  .heart {
-    position: fixed;
-    top: -50px;
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    transform: rotate(45deg);
-    animation: fall 6s linear infinite;
-    opacity: 0.7;
-    z-index: 1;
-  }
-
-  .heart::before,
-  .heart::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: inherit;
-    border-radius: 50%;
-  }
-
-  .heart::before {
-    top: -10px;
-    left: 0;
-  }
-
-  .heart::after {
-    left: -10px;
-    top: 0;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateY(100vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
-</style>
-
-<script>
-  const pastelColors = ['#fbcfe8', '#fde68a', '#bbf7d0', '#e0e7ff', '#fcd34d'];
-
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.backgroundColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
-    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-    document.getElementById('heart-container').appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
-  }
-
-  setInterval(createHeart, 300);
-</script>
-
-
-    .message {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.2rem;
-      line-height: 1.6;
+    .heart-letter {
+      width: 300px;
+      height: 280px;
+      margin: auto;
+      background: #fff0f5;
+      clip-path: path("M150 270 Q40 200 70 120 Q90 40 150 80 Q210 40 230 120 Q260 200 150 270 Z");
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
       color: #d45a83;
-      max-width: 90%;
-      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
-
-    .view-btn {
+    button {
       margin-top: 30px;
       background-color: #fcb8d2;
       border: none;
@@ -99,55 +36,60 @@
       border-radius: 10px;
       cursor: pointer;
       color: white;
-      font-weight: bold;
     }
-
-    .view-btn:hover {
-      background-color: #f57ca0;
-    }
-
-    /* Hoa rơi trái tim pastel */
-    .falling-heart {
+    .heart {
       position: fixed;
       width: 20px;
       height: 20px;
-      background: url('assets/heart-pastel.png') no-repeat center/contain;
+      background-color: pink;
+      transform: rotate(45deg);
       animation: fall 6s linear infinite;
+      opacity: 0.7;
     }
-
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: inherit;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
     @keyframes fall {
-      0% { transform: translateY(-50px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <h1>🤍 Cảm ơn cậu 🤍</h1>
+  <div class="heart-letter">
+    Cảm ơn mọi người vì đã là một mảnh ghép trong bức tranh thanh xuân rực rỡ của tui!
+    Cảm ơn mọi người vì đã luôn yêu thương, quan tâm tới cô bé TusLing ngốc nghếch này.
+    Mình sẽ luôn cố gắng để có thể xứng đáng với tất cả sự yêu thương này ạ 🤍
+  </div>
 
-  <!-- Hiệu ứng hoa rơi -->
+  <button onclick="checkPassword()">📖 Xem lời nhắn</button>
+
   <script>
     function createHeart() {
       const heart = document.createElement("div");
-      heart.classList.add("falling-heart");
+      heart.classList.add("heart");
       heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
+      setTimeout(() => heart.remove(), 7000);
     }
     setInterval(createHeart, 300);
-  </script>
 
-  <!-- Trái tim và lời cảm ơn -->
-  <div class="heart-container">
-    <p class="message">
-      🤍 Cảm ơn mọi người vì đã là một mảnh ghép trong bức tranh thanh xuân rực rỡ của tui! <br><br>
-      Cảm ơn mọi người vì đã luôn yêu thương, quan tâm tới cô bé TusLing ngốc nghếch này. <br><br>
-      Mình sẽ luôn cố gắng để xứng đáng với tất cả sự yêu thương này ạ 🤍
-    </p>
-  </div>
-
-  <!-- Nút xem tổng hợp -->
-  <button class="view-btn" onclick="checkPassword()">📖 Xem lời nhắn</button>
-
-  <script>
     function checkPassword() {
       const pass = prompt("Nhập mật khẩu để xem lời nhắn:");
       if (pass === "24272025") {
@@ -157,6 +99,5 @@
       }
     }
   </script>
-
 </body>
 </html>
